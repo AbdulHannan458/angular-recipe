@@ -7,25 +7,29 @@ import { Recipe } from "./recipe.model";
 @Injectable()
 export class RecipeService {
     recipesChanged = new Subject<Recipe[]>();
-    private recipes: Recipe[] = [
-        new Recipe('A Test Recipe',
-        'Just a test',
-        'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/easy-cheap-dinners-weeknight-1604466210.jpg?crop=0.502xw:1.00xh;0.498xw,0&resize=640:*',
-        [
-            new Ingredient('abc', 1),
-            new Ingredient('abc', 2)
-        ]),
-        new Recipe('A Test Recipe 2',
-        'Just a test 2',
-        'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/easy-cheap-dinners-weeknight-1604466210.jpg?crop=0.502xw:1.00xh;0.498xw,0&resize=640:*',
-        [
-            new Ingredient('abc', 1),
-            new Ingredient('abc', 2)
-        ])
-    ];
+    // private recipes: Recipe[] = [
+    //     new Recipe('A Test Recipe',
+    //     'Just a test',
+    //     'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/easy-cheap-dinners-weeknight-1604466210.jpg?crop=0.502xw:1.00xh;0.498xw,0&resize=640:*',
+    //     [
+    //         new Ingredient('abc', 1),
+    //         new Ingredient('abc', 2)
+    //     ]),
+    //     new Recipe('A Test Recipe 2',
+    //     'Just a test 2',
+    //     'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/easy-cheap-dinners-weeknight-1604466210.jpg?crop=0.502xw:1.00xh;0.498xw,0&resize=640:*',
+    //     [
+    //         new Ingredient('abc', 1),
+    //         new Ingredient('abc', 2)
+    //     ])
+    // ];
+    private recipes: Recipe[] = [];
 
-    constructor(private shoppingListService: ShoppingListService) {
+    constructor(private shoppingListService: ShoppingListService) {}
 
+    setRecipes(recipes: Recipe[]) {
+        this.recipes = recipes;
+        this.recipesChanged.next(this.recipes.slice());
     }
 
     getRecipes() : Recipe[] {
