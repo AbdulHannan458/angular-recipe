@@ -1,4 +1,4 @@
-import { EventEmitter, OnDestroy, Output } from '@angular/core';
+import { OnDestroy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
