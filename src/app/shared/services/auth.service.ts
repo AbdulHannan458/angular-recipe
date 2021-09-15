@@ -3,8 +3,8 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { BehaviorSubject, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
-import { DataStorageService } from "../shared/services/data.storage.service";
-import { User } from "./user.model";
+import { DataStorageService } from "./data.storage.service";
+import { User } from "../models/user.model";
 
 export interface AuthResponseData {
     kind: string;
