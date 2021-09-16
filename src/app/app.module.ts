@@ -12,7 +12,7 @@ import { CoreModule } from './core.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

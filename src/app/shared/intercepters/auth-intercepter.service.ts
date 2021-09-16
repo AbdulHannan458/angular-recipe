@@ -6,9 +6,7 @@ import { AuthService } from "src/app/shared/services/auth.service";
 @Injectable()
 export class AuhtIntercepterService implements HttpInterceptor {
 
-    constructor(private authService: AuthService) {
-
-    }
+    constructor(private authService: AuthService) { }
 
     intercept(request: HttpRequest<any>,
         next: HttpHandler) {
@@ -21,7 +19,6 @@ export class AuhtIntercepterService implements HttpInterceptor {
                 })
                 return next.handle(modifiedRequest);
             })
-            );
-            
+            );   
     }
 }

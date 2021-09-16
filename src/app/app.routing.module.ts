@@ -16,6 +16,13 @@ const appRoutes: Routes = [
         path: 'auth',
         loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule)
     },
+    { path: 'not-found',
+    loadChildren: () => import('./shared/page-not-found/page-not-found.module').then( m => m.PageNotFoundModule)
+    },
+    {
+        path: '**',
+        redirectTo: '/not-found'
+    }
 ];
 @NgModule({
     imports: [RouterModule.forRoot(appRoutes,
